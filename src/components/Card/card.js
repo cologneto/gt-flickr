@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './card.css';
 import {
   FLICK_API_REST_URL,
   GET_IMAGE_INFO,
@@ -6,7 +7,6 @@ import {
   GET_RAW_JSON
 } from  './../../config';
 const profileUrl = 'https://www.flickr.com/photos/';
-
 
 class Card extends Component {
   constructor (props) {
@@ -23,8 +23,7 @@ class Card extends Component {
     };
   }
 
-  componentWillMount(props) {
-    console.log(props);
+  componentDidMount() {
     fetch(FLICK_API_REST_URL + GET_IMAGE_INFO + API_ID + '&photo_id=' + this.props.picId + GET_RAW_JSON)
       .then(function (response) {
         return response.json();
@@ -33,7 +32,7 @@ class Card extends Component {
 
         var tagsarr = photoDetails.photo.tags.tag.map((tag) => {
           return(
-            <span>#{tag.raw},</span>
+            <span>#{tag.raw}, </span>
           )
         })
         this.setState({
@@ -46,6 +45,9 @@ class Card extends Component {
           tags: tagsarr
         })
       }.bind(this))
+      .catch(function(err){
+        console.log(err);
+      })
   }
 
   render() {
@@ -55,12 +57,13 @@ class Card extends Component {
           <img src={this.state.photoPrev} alt={this.state.photoTitle}/>
         </div>
         <div className='links'>
-          <a href={this.state.photoLink} target='_blank'>{this.state.photoTitle}</a>
-          <a href={this.state.authorLink} target='_blank'>{this.state.author}</a>
+          <a className='photoLink' href={this.state.photoLink} target='_blank' title={this.state.photoTitle}>Photo Link</a>
+          <a className='authorLink' href={this.state.authorLink} target='_blank' title={this.state.author}>Author link </a>
         </div>
-        <div>
-          <div>{this.state.description }</div>
+        <div className='cardTextContainer'>
+          <div className='description'>{this.state.description }</div>
           <div>
+            <span>Tags: </span>
             {this.state.tags}
           </div>
         </div>

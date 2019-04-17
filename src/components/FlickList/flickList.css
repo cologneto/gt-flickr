@@ -1,0 +1,50 @@
+.flickContainer {
+    width: 1700px;
+    margin: auto;
+}
+
+.cardContainer {
+    width: 530px;
+    padding: 20px 10px 20px 0;
+    display: inline-block;
+    margin: 40px 10px;
+    overflow-x: hidden;
+    font-family: "Arial Nova";
+    background-color: white;
+}
+
+.searchBar {
+    position: fixed;
+    width: 400px;
+    right: 0;
+    top:20px;
+}
+
+.searchBar input {
+    padding: 5px 10px;
+}
+
+@media only screen and (max-width: 1800px) {
+    .flickContainer {
+        width: 1200px;
+        margin: auto;
+        padding-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 1220px) {
+    .flickContainer {
+        width: 700px;
+        margin: auto;
+        padding-left: 160px;
+    }
+}
+
+
+@media only screen and (max-width: 870px) {
+    .flickContainer {
+        width: 700px;
+        margin: auto;
+        padding-left: 140px;
+    }
+}

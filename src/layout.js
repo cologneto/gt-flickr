@@ -21,14 +21,15 @@ class Layout extends Component {
     this.setState({
       sTag: this.state.inputValue
     });
-
   }
 
   render() {
     return (
       <div>
-        <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-        <button onClick={evt => this.startSearch(evt)}>SEARCH</button>
+          <div className="searchBar">
+            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
+            <button onClick={(evt) => this.startSearch(evt)}>SEARCH</button>
+          </div>
         <FlickList tag={this.state.sTag || null}/>
       </div>
     );

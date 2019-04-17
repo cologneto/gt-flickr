@@ -1,0 +1,36 @@
+.card {
+    width: 500px;
+    margin: 20px;
+    display: inline-block;
+
+}
+
+.img {
+    text-align: center;
+}
+
+.photoLink {
+    float: left;
+    text-decoration: none;
+    background-color: darkgrey;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 10px;
+}
+
+.authorLink, .photoLink {
+    float: left;
+    text-decoration: none;
+    background-color: darkgrey;
+    color: white;
+    padding: 10px 75px;
+    margin: 20px 10px;
+}
+
+.authorLink {
+    float: right;
+}
+
+.cardTextContainer {
+    clear: both;
+}
