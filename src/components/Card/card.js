@@ -32,7 +32,7 @@ class Card extends Component {
 
         var tagsarr = photoDetails.photo.tags.tag.map((tag) => {
           return(
-            <span>#{tag.raw}, </span>
+            <span key={tag.id}>#{tag.raw}, </span>
           )
         })
         this.setState({

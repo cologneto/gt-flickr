@@ -59,7 +59,7 @@ class FlickList extends Component {
 
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
           return(
-              <div className='cardContainer'>
+              <div className='cardContainer' key={pic.id}>
                 <Card
                   picId={pic.id}
                   path={srcPath}
