@@ -13,15 +13,28 @@
     background-color: white;
 }
 
-.searchBar {
+.searchBarContainer {
     position: fixed;
-    width: 600px;
+    width: 100%;
     right: 0;
-    top:20px;
+    top:0;
+    height: 100px;
+    background-color: white;
+}
+
+.searchBar {
+    width: 500px;
+    margin-top: 10px;
+    background-color: white;
+    float: right;
 }
 
 .searchBar input {
     padding: 20px 10px 10px 20px;
+}
+.searchBar input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: crimson;
+    opacity: 1; /* Firefox */
 }
 
 .searchBar input, .searchBar div {

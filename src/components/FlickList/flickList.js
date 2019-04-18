@@ -10,6 +10,7 @@ import {
 } from  './../../config';
 import Card from './../Card/card';
 import './flickList.css'
+import LoadButton from './../LoadMore/loadMore'
 
 class FlickList extends Component {
   constructor(props){
@@ -45,7 +46,6 @@ class FlickList extends Component {
     fetch(FLICK_API_REST_URL + SEARCH_PHOTOS_METHOD + API_ID +
       TAGS + tag + PER_PAGE +'9'+ PAGE +(page || '1') + GET_RAW_JSON)
       .then(function(response){
-        console.log(response)
         return response.json();
       })
       .then(function(j){
@@ -58,8 +58,6 @@ class FlickList extends Component {
           }
 
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
-          console.log(srcPath);
-
           return(
               <div className='cardContainer'>
                 <Card
@@ -79,18 +77,6 @@ class FlickList extends Component {
       })
   }
 
-  scrollHandler(){
-    var lmCon = document.querySelector('.loadMoreContainer')
-    document.addEventListener('scroll', function (w) {
-      console.log(window.scrollY + window.innerHeight);
-      console.log(lmCon.offsetTop)
-      if((window.scrollY + window.innerHeight) > lmCon.offsetTop) {
-        this.renderFlicks(this.props.tag, this.state.currPage);
-      }
-
-    })
-  }
-
   componentDidMount(){
     this.renderFlicks(null);
   }
@@ -99,9 +85,7 @@ class FlickList extends Component {
     return (
       <div className="flickContainer">
         {this.state.cards}
-        <div className='loadMoreContainer'>
-          <button className='loadMoreBtn' onClick={evt => this.loadMore(evt)}>Load More</button>
-        </div>
+        <LoadButton loadMore={evt => this.loadMore(evt)}/>
       </div>
     );
   }

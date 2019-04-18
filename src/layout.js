@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FlickList from './components/FlickList/flickList'
+import Search from './components/Search/search'
 
 class Layout extends Component {
 
@@ -17,7 +18,7 @@ class Layout extends Component {
     });
   }
 
-  startSearch(evt) {
+  startSearch() {
     this.setState({
       sTag: this.state.inputValue
     });
@@ -26,10 +27,9 @@ class Layout extends Component {
   render() {
     return (
       <div>
-          <div className="searchBar">
-            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-            <div onClick={(evt) => this.startSearch(evt)}></div>
-          </div>
+        <Search inputValue={this.state.inputValue}
+                updateInputValue={(evt)=> this.updateInputValue(evt)}
+                startSearch={() => this.startSearch()}/>
         <FlickList tag={this.state.sTag || null}/>
       </div>
     );
