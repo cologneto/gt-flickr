@@ -28,7 +28,7 @@ class Layout extends Component {
       <div>
           <div className="searchBar">
             <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-            <button onClick={(evt) => this.startSearch(evt)}>SEARCH</button>
+            <div onClick={(evt) => this.startSearch(evt)}></div>
           </div>
         <FlickList tag={this.state.sTag || null}/>
       </div>

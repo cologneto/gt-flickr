@@ -41,12 +41,12 @@ class Card extends Component {
           author:     photoDetails.photo.owner.username,
           authorLink: profileUrl + photoDetails.photo.owner.nsid + '/',
           photoPrev:  this.props.path,
-          description: 'Description: ' + photoDetails.photo.description._content,
+          description: photoDetails.photo.description._content,
           tags: tagsarr
         })
       }.bind(this))
       .catch(function(err){
-        console.log(err);
+        alert(err);
       })
   }
 
@@ -61,9 +61,9 @@ class Card extends Component {
           <a className='authorLink' href={this.state.authorLink} target='_blank' title={this.state.author}>Author link </a>
         </div>
         <div className='cardTextContainer'>
-          <div className='description'>{this.state.description }</div>
+          <div className="descriptionContainer"><span className='description'>Description: </span>{this.state.description }</div>
           <div>
-            <span>Tags: </span>
+            <span className='tag'>Tags: </span>
             {this.state.tags}
           </div>
         </div>

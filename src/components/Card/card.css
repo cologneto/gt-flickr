@@ -34,3 +34,15 @@
 .cardTextContainer {
     clear: both;
 }
+
+.description, .tag {
+    font-weight: bold;
+
+}
+
+.descriptionContainer {
+    overflow: hidden;
+    display: block;
+    text-overflow:ellipsis;
+    max-height: 80px;
+}
