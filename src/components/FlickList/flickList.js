@@ -6,11 +6,13 @@ import {
   GET_RAW_JSON,
   PER_PAGE,
   PAGE,
-  TAGS
+  TAGS,
+  SAFE_SEARCH
 } from  './../../config';
 import Card from './../Card/card';
-import './flickList.css'
-import LoadButton from './../LoadMore/loadMore'
+import './flickList.css';
+import LoadButton from './../LoadMore/loadMore';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class FlickList extends Component {
   constructor(props){
@@ -44,7 +46,7 @@ class FlickList extends Component {
 
   renderFlicks(tag, page) {
     fetch(FLICK_API_REST_URL + SEARCH_PHOTOS_METHOD + API_ID +
-      TAGS + tag + PER_PAGE +'9'+ PAGE +(page || '1') + GET_RAW_JSON)
+      TAGS + tag + SAFE_SEARCH + PER_PAGE +'9'+ PAGE +(page || '1') + GET_RAW_JSON)
       .then(function(response){
         return response.json();
       })
@@ -84,7 +86,7 @@ class FlickList extends Component {
   render() {
     return (
       <div className="flickContainer">
-        {this.state.cards}
+          {this.state.cards}
         <LoadButton loadMore={evt => this.loadMore(evt)}/>
       </div>
     );

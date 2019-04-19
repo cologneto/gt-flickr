@@ -91,6 +91,7 @@ input:focus{
         width: 1200px;
         margin: auto;
         padding-left: 80px;
+        background-color: darkgrey;
     }
 }
 
@@ -99,6 +100,7 @@ input:focus{
         width: 700px;
         margin: auto;
         padding-left: 160px;
+        background-color: darkgrey;
     }
 }
 
@@ -108,5 +110,6 @@ input:focus{
         width: 700px;
         margin: auto;
         padding-left: 140px;
+        background-color: darkgrey;
     }
 }

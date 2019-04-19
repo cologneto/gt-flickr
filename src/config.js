@@ -6,6 +6,7 @@ const GET_RAW_JSON         = "&format=json&nojsoncallback=1";
 const PER_PAGE             = "&per_page=";
 const PAGE                 = "&page=";
 const TAGS                 = "&tags=";
+const SAFE_SEARCH          = "&safe_search=1"
 
 export {
   FLICK_API_REST_URL,
@@ -15,5 +16,6 @@ export {
   GET_RAW_JSON,
   PER_PAGE,
   PAGE,
-  TAGS
+  TAGS,
+  SAFE_SEARCH
 }
