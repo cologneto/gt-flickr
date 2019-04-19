@@ -50,8 +50,6 @@ class FlickList extends Component {
         return response.json();
       })
       .then(function(j){
-        let pages = j.photos.pages;
-        console.log(pages)
         let picArray = j.photos.photo.map((pic) => {
 
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
