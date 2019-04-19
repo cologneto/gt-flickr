@@ -43,6 +43,7 @@
 .descriptionContainer {
     overflow: hidden;
     display: block;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     max-height: 80px;
+    white-space: nowrap;
 }

@@ -1,6 +1,7 @@
 .flickContainer {
     width: 1700px;
     margin: auto;
+    background-color: darkgrey;
 }
 
 .cardContainer {
@@ -89,18 +90,15 @@ input:focus{
 @media only screen and (max-width: 1800px) {
     .flickContainer {
         width: 1200px;
-        margin: auto;
         padding-left: 80px;
-        background-color: darkgrey;
+
     }
 }
 
 @media only screen and (max-width: 1220px) {
     .flickContainer {
         width: 700px;
-        margin: auto;
         padding-left: 160px;
-        background-color: darkgrey;
     }
 }
 
@@ -108,9 +106,7 @@ input:focus{
 @media only screen and (max-width: 870px) {
     .flickContainer {
         width: 700px;
-        margin: auto;
         padding-left: 140px;
-        background-color: darkgrey;
     }
 
     .loadMoreBtn {
