@@ -1,6 +1,7 @@
 .flickContainer {
     width: 1700px;
     margin: auto;
+    background-color: darkgrey;
 }
 
 .cardContainer {
@@ -9,7 +10,7 @@
     display: inline-block;
     margin: 40px 10px;
     overflow-x: hidden;
-    font-family: "Arial Nova";
+    font-family: "Arial";
     background-color: white;
 }
 
@@ -23,7 +24,7 @@
 }
 
 .searchBar {
-    width: 500px;
+    width: 600px;
     margin-top: 10px;
     background-color: white;
     float: right;
@@ -89,18 +90,15 @@ input:focus{
 @media only screen and (max-width: 1800px) {
     .flickContainer {
         width: 1200px;
-        margin: auto;
         padding-left: 80px;
-        background-color: darkgrey;
+
     }
 }
 
 @media only screen and (max-width: 1220px) {
     .flickContainer {
         width: 700px;
-        margin: auto;
         padding-left: 160px;
-        background-color: darkgrey;
     }
 }
 
@@ -108,8 +106,10 @@ input:focus{
 @media only screen and (max-width: 870px) {
     .flickContainer {
         width: 700px;
-        margin: auto;
         padding-left: 140px;
-        background-color: darkgrey;
+    }
+
+    .loadMoreBtn {
+        margin-left: -60px;
     }
 }

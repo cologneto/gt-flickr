@@ -12,7 +12,6 @@ import {
 import Card from './../Card/card';
 import './flickList.css';
 import LoadButton from './../LoadMore/loadMore';
-import InfiniteScroll from 'react-infinite-scroller';
 
 class FlickList extends Component {
   constructor(props){
@@ -51,13 +50,7 @@ class FlickList extends Component {
         return response.json();
       })
       .then(function(j){
-        let pages = j.photos.pages;
-        console.log(pages)
         let picArray = j.photos.photo.map((pic) => {
-
-          if(pages === 0) {
-            console.log(pages === 0)
-          }
 
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
           return(
@@ -75,7 +68,7 @@ class FlickList extends Component {
           this.setState({cards: picArray});
         }
       }.bind(this)).catch(function () {
-        alert("Nothing")
+        alert("Something went wrong!")
       })
   }
 

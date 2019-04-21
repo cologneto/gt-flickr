@@ -18,6 +18,15 @@ class Layout extends Component {
     });
   }
 
+  detectEnter() {
+    var that = this;
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode == 13) {
+            that.startSearch();
+        }
+    })
+  }
+
   startSearch() {
     this.setState({
       sTag: this.state.inputValue
@@ -28,6 +37,7 @@ class Layout extends Component {
     return (
       <div>
         <Search inputValue={this.state.inputValue}
+                detectEnter={() => this.detectEnter()}
                 updateInputValue={(evt)=> this.updateInputValue(evt)}
                 startSearch={() => this.startSearch()}/>
         <FlickList tag={this.state.sTag || null}/>
