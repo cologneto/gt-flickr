@@ -74,10 +74,11 @@ class FlickList extends Component {
       .then(function(j){
         let picArray = j.photos.photo.map((pic) => {
 
+          var timestamp = new Date().getUTCMilliseconds();
 
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
           return(
-              <div className='cardContainer' key={pic.id}>
+              <div className='cardContainer' key={pic.id + timestamp}>
                 <Card
                   picId={pic.id}
                   path={srcPath}
