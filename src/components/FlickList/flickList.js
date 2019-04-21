@@ -22,11 +22,33 @@ class FlickList extends Component {
     };
   }
 
+  getDistFromBottom () {
+
+    var scrollPosition = window.pageYOffset;
+    var windowSize     = window.innerHeight;
+    var bodyHeight     = document.body.offsetHeight;
+
+    return Math.max(bodyHeight - (scrollPosition + windowSize), 0);
+
+  }
+
+  componentWillMount(){
+    var that = this;
+    document.addEventListener('scroll', function() {
+      var distToBottom = that.getDistFromBottom();
+
+      if (distToBottom === 0) {
+        that.loadMore();
+      }
+    });
+  }
+
   componentDidUpdate(oldProps) {
     if(oldProps.tag !== this.props.tag) {
       this.setState({
         cards: [],
-        currPage: 2
+        currPage: 2,
+        pollingForData: false
       });
       this.renderFlicks(this.props.tag);
     }
@@ -52,6 +74,7 @@ class FlickList extends Component {
       .then(function(j){
         let picArray = j.photos.photo.map((pic) => {
 
+
           var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
           return(
               <div className='cardContainer' key={pic.id}>
@@ -63,7 +86,9 @@ class FlickList extends Component {
           )
         })
         if(page) {
-          this.setState({cards: this.state.cards.concat(picArray)});
+          this.setState({
+            cards: this.state.cards.concat(picArray),
+          });
         } else {
           this.setState({cards: picArray});
         }
