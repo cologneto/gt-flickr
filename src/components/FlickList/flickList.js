@@ -29,7 +29,6 @@ class FlickList extends Component {
     var bodyHeight     = document.body.offsetHeight;
 
     return Math.max(bodyHeight - (scrollPosition + windowSize), 0);
-
   }
 
   componentWillMount(){

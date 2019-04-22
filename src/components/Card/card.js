@@ -29,10 +29,11 @@ class Card extends Component {
         return response.json();
       })
       .then(function (photoDetails) {
+        var timestamp = new Date().getUTCMilliseconds();
 
         var tagsarr = photoDetails.photo.tags.tag.map((tag) => {
           return(
-            <span key={tag.id}>#{tag.raw}, </span>
+            <span key={tag.id + timestamp}>#{tag.raw}, </span>
           )
         })
         this.setState({
@@ -57,8 +58,8 @@ class Card extends Component {
           <img src={this.state.photoPrev} alt={this.state.photoTitle}/>
         </div>
         <div className='links'>
-          <a className='photoLink' href={this.state.photoLink} target='_blank' title={this.state.photoTitle}>Photo Link</a>
-          <a className='authorLink' href={this.state.authorLink} target='_blank' title={this.state.author}>Author link </a>
+          <a className='photoLink' href={this.state.photoLink} target='_blank' rel="noopener noreferrer" title={this.state.photoTitle}>Photo Link</a>
+          <a className='authorLink' href={this.state.authorLink} target='_blank' rel="noopener noreferrer" title={this.state.author}>Author link </a>
         </div>
         <div className='cardTextContainer'>
           <div className="descriptionContainer"><span className='description'>Description: </span>{this.state.description }</div>

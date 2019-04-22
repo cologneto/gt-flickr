@@ -21,7 +21,7 @@ class Layout extends Component {
   detectEnter() {
     var that = this;
     document.addEventListener('keyup', function (e) {
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             that.startSearch();
         }
     })

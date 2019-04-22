@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/gt-flick.iml" filepath="$PROJECT_DIR$/.idea/gt-flick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gt-flickr.iml" filepath="$PROJECT_DIR$/.idea/gt-flickr.iml" />
     </modules>
   </component>
 </project>
